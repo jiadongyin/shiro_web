@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.SysExceptionLogMapper">
+    <resultMap id="baseResultMap" type="com.hunt.model.entity.SysExceptionLog">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="method_name" property="methodName" jdbcType="VARCHAR"/>
+        <result column="exception_type" property="exceptionType" jdbcType="VARCHAR"/>
+        <result column="exception_msg" property="exceptionMsg" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="is_view" property="isView" jdbcType="TINYINT"/>
+    </resultMap>
+    
+     <!--  -->
+    <sql id="sql_column">
+        id,
+        ip,
+        className,
+        methodName,
+        exceptionType,
+        exceptionMsg,
+        createTime,
+        isView
+    </sql>
+    
+    <sql id="sql_column_where">
+        <if test="id !=null ">
+            AND id = #{id}
+        </if>
+        <if test="ip !=null and ip.length() != 0">
+            AND ip = #{ip}
+        </if>
+        <if test="className !=null ">
+            AND class_name = #{className}
+        </if>
+        <if test="methodName !=null ">
+            AND method_name = #{methodName}
+        </if>
+        <if test="exceptionType !=null ">
+            AND exception_type = #{exceptionType}
+        </if>
+        <if test="exceptionMsg !=null ">
+            AND exception_msg = #{exceptionMsg}
+        </if>
+        <if test="createTime !=null ">
+            AND create_time = #{createTime}
+        </if>
+        <if test="isView !=null ">
+            AND is_view = #{isView}
+        </if>
+       
+    </sql>
+    
+     <insert id="insertExceptionLog" parameterType="SysExceptionLog" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_exception_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ip !=null and ip.length() != 0">
+                ip,
+            </if>
+            <if test="className !=null">
+                class_name,
+            </if>
+            <if test="methodName !=null">
+                method_name,
+            </if>
+            <if test="exceptionType !=null">
+                exception_type,
+            </if>
+            <if test="exceptionMsg !=null">
+                exception_msg,
+            </if>
+            <if test="createTime !=null">
+                create_time,
+            </if>
+            <if test="isView !=null">
+                is_view,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ip !=null and ip.length() !=0">
+                #{ip},
+            </if>
+            <if test="className !=null">
+                #{className},
+            </if>
+            <if test="methodName !=null">
+                #{methodName},
+            </if>
+            <if test="exceptionType !=null">
+                #{exceptionType},
+            </if>
+            <if test="exceptionMsg !=null">
+                #{exceptionMsg},
+            </if>
+            <if test="createTime !=null ">
+                #{createTime},
+            </if>
+            <if test="isView !=null ">
+                #{isView},
+            </if>
+        </trim>
+    </insert>
+    
+    
+</mapper>

@@ -258,9 +258,9 @@ permission_tool = {
             striped: true,
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "名称", field: "name", width: 200},
-                {title: "编码", field: "code", width: 200},
-                {title: "说明", field: "description", width: 400},
+                {title: "名称", field: "name", width: 100},
+                {title: "编码", field: "code", width: 100},
+                {title: "说明", field: "description", width: 200},
                 {
                     title: "是否可修改", field: "isFinal", formatter: function (value, row, index) {
                     if (value == 1) {

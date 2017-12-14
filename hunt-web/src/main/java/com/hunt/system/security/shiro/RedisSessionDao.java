@@ -27,7 +27,8 @@ public class RedisSessionDao extends AbstractSessionDAO {
 
     @Override
     protected Serializable doCreate(Session session) {
-        Serializable sessionId = sessionIdPrefix + UUID.randomUUID().toString();
+       // Serializable sessionId = sessionIdPrefix + UUID.randomUUID().toString();
+        Serializable sessionId = sessionIdPrefix + IdGen.randomLong();//自定义sessionId
         assignSessionId(session, sessionId);
         redisTemplate.opsForValue().set(sessionId, session, timeout, TimeUnit.SECONDS);
         log.info("create shiro session ,sessionId is :{}", sessionId.toString());

@@ -87,7 +87,12 @@ $(document).ready(function () {
     } else if (!$("#password").validatebox("isValid")) {
         $("#password").focus();
     }
+    
     $("#github").click(function () {
-        location = "https://github.com/login/oauth/authorize?client_id=f4b35940357e82596645&state=hunt_admin&redirect_uri=http://127.0.0.1:8080/oauth/github";
+    	 location = "https://github.com/login/oauth/authorize?client_id=528b3d803d4d9427311b&state=hunt&redirect_uri=http://127.0.0.1:8080/hunt-admin/oauth/github";
     });
+    
+    
 });
+    
+    

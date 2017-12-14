@@ -5,7 +5,12 @@ common_tool = {
             title: '系统提示',
             msg: msg,
             timeout: 2000,
-            showType: 'slide'
+            showType: 'slide',
+            style:{
+        		right:'',
+        		top:'200px',
+        		bottom:''
+        	}
         });
     },
     timestampToDateTime: function (value) {

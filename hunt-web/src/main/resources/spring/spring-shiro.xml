@@ -5,7 +5,8 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/"/>
+        <property name="loginUrl" value="/"/><!-- 没有认证返回地址 -->
+        <property name="unauthorizedUrl" value="/unAuthorization.jsp" /> <!-- 没有授权返回地址 -->
         <property name="filters">
             <map>
                 <!--<entry key="authc" value-ref="authorizationFilter"/>-->
@@ -46,7 +47,10 @@
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
 
-    <bean id="redisSessionDAO" class="com.hunt.system.security.shiro.RedisSessionDao"/>
+    <bean id="redisSessionDAO" class="com.hunt.system.security.shiro.RedisSessionDao">
+    	<property name="sessionIdGenerator" ref="idGen" />
+    </bean>
+    
     <bean id="cacheManager" class="com.hunt.system.security.shiro.RedisCacheManager">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
@@ -58,7 +62,7 @@
     </bean>
 
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="globalSessionTimeout" value="2592000000"/>
+        <property name="globalSessionTimeout" value="86400000"/>
         <property name="sessionValidationSchedulerEnabled" value="true"/>
         <property name="sessionDAO" ref="redisSessionDAO"/>
     </bean>

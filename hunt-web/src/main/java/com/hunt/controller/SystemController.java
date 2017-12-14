@@ -2,6 +2,7 @@ package com.hunt.controller;
 
 import com.hunt.system.security.geetest.GeetestConfig;
 import com.hunt.system.security.geetest.GeetestLib;
+import com.hunt.system.security.shiro.IdGen;
 import com.hunt.model.dto.LoginInfo;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.SysDataGroup;

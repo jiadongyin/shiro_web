@@ -34,10 +34,10 @@ log_tools = {
                     return common_tool.timestampToDateTime(value);
                 }, width: 150
                 },
-                {title: "method", field: "method", sortable: true, width: 370},
+                {title: "method", field: "method", sortable: true, width: 350},
                 {title: "url", field: "url", sortable: true, width: 309},
-                {title: "param", field: "param", sortable: true, width: 200},
-                {title: "duration", field: "duration", sortable: true, width: 100},
+                {title: "param", field: "param", sortable: true, width: 150},
+                {title: "duration", field: "duration", sortable: true, width: 50},
                 {title: "ip", field: "ip", sortable: true, width: 100},
             ]],
             columns: [[

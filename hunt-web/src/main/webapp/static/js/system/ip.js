@@ -7,7 +7,6 @@ ip_tool = {
             async: false,
             dataType: 'json',
             success: function (result) {
-
                 if (result.code == 10000) {
                     $('#ip-switchButton-btn').switchbutton({
                         checked: result.data,
@@ -37,13 +36,13 @@ ip_tool = {
             pageList: [30, 60, 90, 120],
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "IP", field: "ip", width: 300},
+                {title: "IP", field: "ip", width: 150},
                 {
                     title: "到期时间", field: "expireTime", formatter: function (value, row, index) {
                     return common_tool.timestampToDateTime(value);
-                }, width: 100
+                }, width: 150
                 },
-                {title: "说明", field: "description", width: 400},
+                {title: "说明", field: "description", width: 200},
                 {
                     title: "创建时间", field: "createTime", formatter: function (value, row, index) {
                     return common_tool.timestampToDateTime(value);
