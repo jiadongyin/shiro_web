@@ -27,9 +27,9 @@ public class SimpleMailSender {
   
     private transient Session session;  
         // 从本地缓存中获取邮件相关配置信息  
-    private static final String USERNAME = "yjd757454436@163.com";  
-    private static final String PASSWORD = "Y421123JD7653";  
-    //private static final String PASSWORD = "fmlcjoydiodhbbbc";  //QQ邮箱授权码
+    private static final String USERNAME = "XXXXXXX.com";  
+    private static final String PASSWORD = "XXXXX";  
+    //private static final String PASSWORD = "XXXXXX";  //QQ邮箱授权码
    
     public SimpleMailSender() {  
         init();  
